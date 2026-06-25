@@ -32,6 +32,8 @@ const plans = [
     iconColor: 'text-blue-600',
     priceColor: 'text-blue-700',
     shadow: '0 8px 24px rgba(37,99,235,0.20)',
+    badge: undefined as string | undefined,
+    accent: undefined as string | undefined,
   },
   {
     key: 'EXPRESS',
@@ -60,6 +62,8 @@ const plans = [
     iconColor: 'text-orange-600',
     priceColor: 'text-orange-600',
     shadow: '0 8px 24px rgba(249,115,22,0.22)',
+    badge: undefined as string | undefined,
+    accent: undefined as string | undefined,
   },
 ] as const
 

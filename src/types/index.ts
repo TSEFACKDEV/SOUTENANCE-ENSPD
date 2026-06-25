@@ -258,21 +258,26 @@ export const PRICING = {
 } as const
 
 export const FILIERES = [
-  { value: 'GI', label: 'GI — Génie Informatique' },
-  { value: 'GT', label: 'GT — Génie des Télécommunications' },
-  { value: 'GE', label: 'GE — Génie Électrique' },
-  { value: 'GC', label: 'GC — Génie Civil' },
+{ value: 'GCI', label: 'GCI — Génie Civil' },
+  { value: 'GLO', label: 'GLO — Génie Logiciel (Filière GIT)' },
+  { value: 'GRT', label: 'GRT — Génie Réseau & Télécommunications (Filière GIT)' },
+  { value: 'GESI', label: 'GESI — Génie Électrique & Systèmes Intelligents' },
   { value: 'GM', label: 'GM — Génie Mécanique' },
-  { value: 'GCH', label: 'GCH — Génie Chimique' },
-  { value: 'GIM', label: 'GIM — Génie Industriel et Maintenance' },
-  { value: 'MP', label: 'MP — Mathématiques et Physique' },
+  { value: 'GE', label: 'GE — Génie Énergétique' },
+  { value: 'GP', label: 'GP — Génie des Procédés' },
+  { value: 'GMP', label: 'GMP — Génie Maritime & Portuaire' },
+  { value: 'GAM', label: 'GAM — Génie Automobile & Mécatronique' },
+  { value: 'QHSE', label: 'QHSE — Qualité, Hygiène, Sécurité & Environnement' },
+  { value: 'METEO', label: 'METEO — Météorologie' },
 ] as const
 
 export const NIVEAUX = [
-  'Licence 1', 'Licence 2', 'Licence 3',
-  'Master 1', 'Master 2',
+
   'Ingénieur 1', 'Ingénieur 2', 'Ingénieur 3', 'Ingénieur 4', 'Ingénieur 5',
+  'Master 1', 'Master 2',
   'Doctorat',
+  'Licence 1', 'Licence 2', 'Licence 3',
+  
 ] as const
 
 export const ORDER_STATUS_LABELS: Record<OrderStatus, string> = {

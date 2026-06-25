@@ -18,6 +18,7 @@ import {
   FiChevronDown,
 } from 'react-icons/fi'
 import { useNotificationStore } from '@/store/useNotificationStore'
+import Image from 'next/image'
 
 export default function Header() {
   const { data: session } = useSession()
@@ -78,18 +79,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-            <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow"
-              style={{ background: 'linear-gradient(135deg, #1F4E79 0%, #0d1b3e 100%)' }}
-            >
-              <span className="text-white font-extrabold text-xs tracking-wide">GIT</span>
-            </div>
-            <div className="hidden sm:block">
-              <p className="font-extrabold text-sm leading-tight tracking-tight" style={{ color: '#0d1b3e' }}>
-                Soutenances ENSPD
-              </p>
-              <p className="text-text-muted text-[10px] leading-tight font-medium">Club GIT · Douala</p>
-            </div>
+             <Image src="/images/logo.png" alt="Logo du site" width={120} height={60} />
           </Link>
 
           {/* Desktop nav */}

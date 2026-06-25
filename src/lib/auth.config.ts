@@ -1,6 +1,6 @@
 /**
  * Edge-safe auth config — NO imports from Prisma or Node.js modules.
- * Used by middleware.ts (Edge Runtime) for JWT verification.
+ * Used by proxy.ts (Edge Runtime) for JWT verification.
  */
 import type { NextAuthConfig } from 'next-auth'
 

@@ -11,7 +11,7 @@ import {
 export const metadata = { title: 'Flyer de Soutenance — Club GIT ENSPD' }
 
 const features = [
-  { icon: FiLayers,    text: 'Design aux couleurs de votre filière (GI, GT, GE…)' },
+  { icon: FiLayers,    text: 'Design aux couleurs de votre filière (GIT, GRT, GE…)' },
   { icon: FiUser,      text: 'Photo & logo personnalisés' },
   { icon: FiAlignLeft, text: 'Informations complètes : date, heure, salle, jury' },
   { icon: FiCheck,     text: '2 révisions incluses — satisfaction garantie' },
@@ -33,6 +33,7 @@ const plans = [
     iconBg: 'bg-blue-100',
     iconColor: 'text-blue-600',
     priceColor: 'text-blue-700',
+    badge: undefined as string | undefined,
   },
   {
     key: 'EXPRESS',
@@ -62,6 +63,7 @@ const plans = [
     iconBg: 'bg-violet-100',
     iconColor: 'text-violet-600',
     priceColor: 'text-violet-700',
+    badge: undefined as string | undefined,
   },
 ] as const
 

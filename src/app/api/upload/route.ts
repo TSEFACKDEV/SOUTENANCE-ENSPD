@@ -1,19 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
-import path from 'path'
-import { writeFile, mkdir } from 'fs/promises'
+import { v2 as cloudinary } from 'cloudinary'
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+})
 
 const MAX_FILE_SIZE = Number(process.env.MAX_FILE_SIZE) || 52428800 // 50MB
 
-const ALLOWED_TYPES: Record<string, string> = {
-  'image/jpeg': 'jpg',
-  'image/png': 'png',
-  'image/webp': 'webp',
-  'application/pdf': 'pdf',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx',
-  'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'pptx',
-  'application/msword': 'doc',
-}
+const ALLOWED_TYPES = new Set([
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'application/pdf',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  'application/msword',
+])
 
 export async function POST(req: NextRequest) {
   const session = await auth()
@@ -36,25 +41,30 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    const ext = ALLOWED_TYPES[file.type]
-    if (!ext) {
+    if (!ALLOWED_TYPES.has(file.type)) {
       return NextResponse.json({ error: 'Type de fichier non autorisé' }, { status: 400 })
     }
 
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', session.user.id)
-    await mkdir(uploadDir, { recursive: true })
-
-    const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`
-    const filepath = path.join(uploadDir, filename)
-
     const buffer = Buffer.from(await file.arrayBuffer())
-    await writeFile(filepath, buffer)
+    const resourceType = file.type.startsWith('image/') ? 'image' : 'raw'
 
-    const url = `/uploads/${session.user.id}/${filename}`
+    const result = await new Promise<{ secure_url: string; public_id: string; bytes: number }>(
+      (resolve, reject) => {
+        cloudinary.uploader
+          .upload_stream(
+            { folder: `soutenance/${session.user!.id}`, resource_type: resourceType },
+            (error, res) => {
+              if (error || !res) reject(error ?? new Error('Upload failed'))
+              else resolve(res as { secure_url: string; public_id: string; bytes: number })
+            }
+          )
+          .end(buffer)
+      }
+    )
 
-    return NextResponse.json({ url, filename, size: file.size, type: file.type })
+    return NextResponse.json({ url: result.secure_url, filename: result.public_id, size: result.bytes, type: file.type })
   } catch (error) {
     console.error('Upload error:', error)
-    return NextResponse.json({ error: 'Erreur lors de l\'upload' }, { status: 500 })
+    return NextResponse.json({ error: "Erreur lors de l'upload" }, { status: 500 })
   }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi'
 

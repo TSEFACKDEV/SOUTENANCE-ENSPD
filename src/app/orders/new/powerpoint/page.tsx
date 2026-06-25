@@ -130,8 +130,8 @@ export default function PowerPointOrderPage() {
 
       <div className="bg-white border border-slate-200 rounded-2xl p-6">
         <h1 className="text-xl font-bold text-slate-800 mb-6">
-          {step === 0 && '🎓 Informations de soutenance'}
-          {step === 1 && '📊 Détails de la présentation'}
+          {step === 0 && 'Informations de soutenance'}
+          {step === 1 && 'Détails de la présentation'}
           {step === 2 && 'Récapitulatif de la commande'}
         </h1>
 

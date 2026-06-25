@@ -30,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${plusJakarta.variable} ${geistMono.variable} h-full`}>
+      <head>
+        
+      </head>
       <body className="min-h-full flex flex-col antialiased">
         <SessionProvider>
           {children}
