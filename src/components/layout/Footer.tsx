@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi'
+import { FiMail, FiPhone, FiMapPin, FiFacebook, FiGithub } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -29,9 +30,9 @@ export default function Footer() {
             </p>
             <div className="flex gap-2.5 mt-5">
               {[
-                { icon: FiFacebook, href: '#' },
-                { icon: FiInstagram, href: '#' },
-                { icon: FiLinkedin, href: '#' },
+                { icon: FaWhatsapp, href:'https://whatsapp.com/channel/0029VbCNtEiCsU9VniUOks2s' },
+                { icon: FiFacebook, href:'https://www.facebook.com/profile.php?id=61581750051822&mibextid=rS40aB7S9Ucbxw6v' },
+                { icon: FiGithub, href:'https://github.com/CLUB-GIT-ENSPD' },
               ].map(({ icon: Icon, href }) => (
                 <a
                   key={href + Icon.name}
@@ -77,12 +78,12 @@ export default function Footer() {
               <li className="flex items-center gap-2.5">
                 <FiMail size={14} className="shrink-0 text-accent" />
                 <a href="mailto:git@enspd.cm" className="hover:text-accent transition-colors font-medium">
-                  git@enspd.cm
+                  clubgitenspd13@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <FiPhone size={14} className="shrink-0 text-accent" />
-                <span>+237 6XX XXX XXX</span>
+                <span>+237 98 97 53 41</span>
               </li>
             </ul>
           </div>
