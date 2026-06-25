@@ -12,6 +12,7 @@ import { motion } from 'framer-motion'
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff, FiChevronDown, FiArrowRight } from 'react-icons/fi'
 import { FcGoogle } from 'react-icons/fc'
 import { FILIERES, NIVEAUX } from '@/types'
+import Image from 'next/image'
 
 const schema = z.object({
   prenom: z.string().min(2, 'Le prénom doit contenir au moins 2 caractères'),
@@ -103,12 +104,10 @@ export default function RegisterPage() {
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-20"
           style={{ background: 'radial-gradient(circle, #f97316, transparent)' }} />
         <div className="relative text-center text-white max-w-xs">
-            <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
-              style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', boxShadow: '0 8px 24px rgba(99,102,241,0.40)' }}
-            >
-            <span className="font-extrabold text-xl">GIT</span>
-          </div>
+            {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
+             <Image src="/images/logo.png" alt="Logo du site" width={60} height={60} />
+          </Link>
           <h1 className="text-2xl font-extrabold mb-3 tracking-tight">Rejoignez-nous</h1>
           <p className="text-blue-100/80 text-sm leading-relaxed">
             Créez votre compte et accédez aux services graphiques professionnels pour votre soutenance ENSPD.

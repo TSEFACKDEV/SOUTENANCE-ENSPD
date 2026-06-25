@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { FiMail, FiPhone, FiMapPin, FiFacebook, FiGithub } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -13,12 +14,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center"
-                style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', boxShadow: '0 4px 14px rgba(99,102,241,0.35)' }}
-              >
-                <span className="font-extrabold text-white text-sm tracking-wide">GIT</span>
-              </div>
+               {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
+             <Image src="/images/logo.png" alt="Logo du site" width={60} height={60} />
+          </Link>
               <div>
                 <p className="font-extrabold text-base leading-tight tracking-tight">Soutenances ENSPD</p>
                 <p className="text-blue-200 text-xs font-medium">Club GIT · Services graphiques</p>

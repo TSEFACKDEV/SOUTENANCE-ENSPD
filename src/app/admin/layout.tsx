@@ -10,6 +10,7 @@ import {
   FiBarChart2,
   FiArrowLeft,
 } from 'react-icons/fi'
+import Image from 'next/image'
 
 const NAV = [
   { href: '/admin',            label: 'Tableau de bord', icon: FiGrid },
@@ -36,12 +37,10 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         {/* Logo */}
         <div className="px-5 py-5 border-b border-white/8">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)', boxShadow: '0 4px 12px rgba(99,102,241,0.35)' }}
-            >
-              <span className="font-extrabold text-white text-xs tracking-wide">GIT</span>
-            </div>
+            {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
+             <Image src="/images/logo.png" alt="Logo du site" width={60} height={60} />
+          </Link>
             <div>
               <p className="text-white font-extrabold text-xs leading-tight tracking-tight">Soutenances ENSPD</p>
               <p className="text-white/40 text-[10px] font-medium">Administration</p>
