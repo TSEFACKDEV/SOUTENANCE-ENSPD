@@ -52,6 +52,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', label: 'Accueil' },
+    { href: "/tarifs", label: "Tarifs" },
     { href: '/services/flyer', label: 'Flyer' },
     { href: '/services/mise-en-page', label: 'Mise en page' },
     { href: '/services/powerpoint', label: 'PowerPoint' },
