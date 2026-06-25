@@ -52,7 +52,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '/', label: 'Accueil' },
-    { href: "/tarifs", label: "Tarifs" },
+    { href: "/services/tarifs", label: "Tarifs" },
     { href: '/services/flyer', label: 'Flyer' },
     { href: '/services/mise-en-page', label: 'Mise en page' },
     { href: '/services/powerpoint', label: 'PowerPoint' },
@@ -80,7 +80,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-             <Image src="/images/logo.png" alt="Logo du site" width={120} height={60} />
+             <Image src="/images/logo.png" alt="Logo du site" width={60} height={60} />
           </Link>
 
           {/* Desktop nav */}
